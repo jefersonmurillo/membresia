@@ -30,6 +30,12 @@
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <!-- summernote CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/summernote/summernote.css') }}">
+    <!-- Range Slider CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/themesaller-forms.css') }}">
     <!-- normalize CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
@@ -39,10 +45,27 @@
     <!-- Notika icon CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('css/notika-custom-icon.css') }}">
+    <!-- bootstrap select CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-select/bootstrap-select.css') }}">
+    <!-- datapicker CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/datapicker/datepicker3.css') }}">
+    <!-- Color Picker CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/color-picker/farbtastic.css') }}">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/chosen/chosen.css') }}">
+    <!-- notification CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/notification/notification.css') }}">
+    <!-- dropzone CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('css/dropzone/dropzone.css') }}">
     <!-- wave CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('css/wave/waves.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/wave/button.css') }}">
     <!-- main CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -67,6 +90,8 @@
 
     @include('layouts.footer')
 
+    <!-- jquery
+		============================================ -->
     <script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
     <!-- bootstrap JS
 		============================================ -->
@@ -108,14 +133,50 @@
     <script src="{{ asset('js/knob/jquery.knob.js') }}"></script>
     <script src="{{ asset('js/knob/jquery.appear.js') }}"></script>
     <script src="{{ asset('js/knob/knob-active.js') }}"></script>
+    <!-- Input Mask JS
+		============================================ -->
+    <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
     <!-- icheck JS
 		============================================ -->
     <script src="{{ asset('js/icheck/icheck.min.js') }}"></script>
     <script src="{{ asset('js/icheck/icheck-active.js') }}"></script>
+    <!-- rangle-slider JS
+		============================================ -->
+    <script src="{{ asset('js/rangle-slider/jquery-ui-1.10.4.custom.min.js') }}"></script>
+    <script src="{{ asset('js/rangle-slider/jquery-ui-touch-punch.min.js') }}"></script>
+    <script src="{{ asset('js/rangle-slider/rangle-active.js') }}"></script>
+    <!-- datapicker JS
+		============================================ -->
+    <script src="{{ asset('js/datapicker/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('js/datapicker/datepicker-active.js') }}"></script>
+    <!-- bootstrap select JS
+		============================================ -->
+    <script src="{{ asset('js/bootstrap-select/bootstrap-select.js') }}"></script>
+    <!--  color-picker JS
+		============================================ -->
+    <script src="{{ asset('js/color-picker/farbtastic.min.js') }}"></script>
+    <script src="{{ asset('js/color-picker/color-picker.js') }}"></script>
+    <!--  notification JS
+		============================================ -->
+    <script src="{{ asset('js/notification/bootstrap-growl.min.js') }}"></script>
+    <script src="{{ asset('js/notification/notification-active.js') }}"></script>
+    <!--  summernote JS
+		============================================ -->
+    <script src="{{ asset('js/summernote/summernote-updated.min.js') }}"></script>
+    <script src="{{ asset('js/summernote/summernote-active.js') }}"></script>
+    <!-- dropzone JS
+		============================================ -->
+    <script src="{{ asset('js/dropzone/dropzone.js') }}"></script>
     <!--  wave JS
 		============================================ -->
     <script src="{{ asset('js/wave/waves.min.js') }}"></script>
     <script src="{{ asset('js/wave/wave-active.js') }}"></script>
+    <!--  chosen JS
+		============================================ -->
+    <script src="{{ asset('js/chosen/chosen.jquery.js') }}"></script>
+    <!--  Chat JS
+		============================================ -->
+    <script src="{{ asset('js/chat/jquery.chat.js') }}"></script>
     <!--  todo JS
 		============================================ -->
     <script src="{{ asset('js/todo/jquery.todo.js') }}"></script>
@@ -126,7 +187,7 @@
 		============================================ -->
     <script src="{{ asset('js/main.js') }}"></script>
     <!-- tawk chat JS
-		============================================ -->
+        ============================================ -->
     <script src="{{ asset('js/tawk-chat.js') }}"></script>
 
     @yield('js')

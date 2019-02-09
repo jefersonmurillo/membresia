@@ -2970,7 +2970,7 @@ textarea.auto-size {
     background-color: #FFF;
     background-position: right calc(100% - 7px);
     background-repeat: no-repeat;
-    background-image: url(images/select.png);
+    background-image: url(../images/select.png);
     pointer-events: none;
     z-index: 5;
 }
@@ -3169,7 +3169,7 @@ textarea.auto-size {
     background-color: #FFF;
     background-position: right calc(100% - 7px);
     background-repeat: no-repeat;
-    background-image: url(images/select.png);
+    background-image: url(../images/select.png);
     pointer-events: none;
     z-index: 5;
 }
@@ -3368,7 +3368,7 @@ textarea.auto-size {
 	height: 70px;
 }
 .datepicker-days .table-condensed thead tr:last-child {
-    background: #11cc9d;
+    background: #000500;
     height: 40px;
 }
 .datepicker-days .table-condensed thead tr th:first-child {
@@ -4638,5 +4638,6 @@ body.box-layout {
 /*----------------------------------------*/
 
 .logo{
-    width: 85px;
+    width: 75px;
 }
+

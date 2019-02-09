@@ -1,46 +1,35 @@
 @extends('layouts.app')
 
+@section('css')
+
+@endsection
+
 @section('nav')
     @include('layouts.nav')
 @endsection
 
 @section('content')
-    <div class="form-example-area">
+    <!-- Encabezado -->
+    <div class="breadcomb-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="form-example-wrap">
-                        <div class="cmp-tb-hd">
-                            <h2>Registro de Miembro</h2>
-                            <p>Individual form controls automatically receive some global styling. All textual 'input', 'textarea', and 'select' elements with <code>.form-control</code> are set to width: 100%; by default. Wrap labels and controls in <code>.form-group</code> for optimum
-                                spacing.</p>
-                        </div>
+                    <div class="breadcomb-list">
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-example-int mg-t-15">
-                                    <div class="form-group">
-                                        <label>Congregación</label>
-                                        <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" placeholder="Enter Email">
-                                        </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-icon">
+                                        <i class="notika-icon notika-form"></i>
+                                    </div>
+                                    <div class="breadcomb-ctn">
+                                        <h2>Registro de Miembros</h2>
+                                        <p>Iglesia Pentecostal Unida de Colombia <span class="bread-ntd">IPUC</span></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-example-int mg-t-15">
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" placeholder="Password">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-example-int mg-t-15">
-                                    <button class="btn btn-success notika-btn-success">Submit</button>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                                <div class="breadcomb-report">
+                                    <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -49,4 +38,281 @@
             </div>
         </div>
     </div>
+    <!-- Breadcomb area End-->
+    <!-- Form Element area Start-->
+    <div class="form-element-area">
+        <form action="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-element-list">
+                            <div class="basic-tb-hd">
+                                <h2>Datos Basicos</h2>
+                                <p>
+                                    <strong>NOTA PARA EL CREYENTE</strong>. En caso de que usted se traslade a otra congregación, por favor
+                                    solicite además de la carta del pastor, copia de este formato de membresía para que
+                                    repose en los archivos de la nueva congregación donde asistirá.
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Congregación</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" value="Camilo Daza" disabled="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group" id="data_1">
+                                            <label><strong>Fecha de Registro</strong></label>
+                                            <div class="input-group date nk-int-st">
+                                                <span class="input-group-addon"></span>
+                                                <input type="text" class="form-control" value="03/19/2018">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>N° Registro</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Nombres</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Apellidos</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Tipo Documento</strong></label>
+                                            <div class="bootstrap-select fm-cmp-mg">
+                                                <select class="selectpicker">
+                                                    <option>Cedula Ciudadania</option>
+                                                    <option>Tarjeta Identidad</option>
+                                                    <option>NUIP</option>
+                                                    <option>Cedula Extranjeria</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Numero documento</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Departamento Nacimiento</strong></label>
+                                            <div class="bootstrap-select fm-cmp-mg">
+                                                <select class="selectpicker">
+                                                    <option>Cedula Ciudadania</option>
+                                                    <option>Tarjeta Identidad</option>
+                                                    <option>NUIP</option>
+                                                    <option>Cedula Extranjeria</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Municipio Nacimiento</strong></label>
+                                            <div class="bootstrap-select fm-cmp-mg">
+                                                <select class="selectpicker">
+                                                    <option>Cedula Ciudadania</option>
+                                                    <option>Tarjeta Identidad</option>
+                                                    <option>NUIP</option>
+                                                    <option>Cedula Extranjeria</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group" id="data_1">
+                                            <label><strong>Fecha de Nacimiento</strong></label>
+                                            <div class="input-group date nk-int-st">
+                                                <span class="input-group-addon"></span>
+                                                <input type="text" class="form-control" value="03/19/2018">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-element-list mg-t-30">
+                            <div class="cmp-tb-hd">
+                                <h2>Escolaridad</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <h5>Nivel de escolaridad</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="fm-checkbox">
+                                        <label><input type="radio" value="option1" name="nivel" class="i-checks"> <i></i> Primaria</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="fm-checkbox">
+                                        <label><input type="radio" value="option1" name="nivel" class="i-checks"> <i></i> Secundaria</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="fm-checkbox">
+                                        <label><input type="radio" value="option1" name="nivel" class="i-checks"> <i></i> Técnico</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="fm-checkbox">
+                                        <label><input type="radio" value="option1" name="nivel" class="i-checks"> <i></i> Tecnólogo</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="fm-checkbox">
+                                        <label><input type="radio" value="option1" name="nivel" class="i-checks"> <i></i> Superior</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="fm-checkbox">
+                                        <label><input type="radio" value="option1" name="nivel" class="i-checks"> <i></i> Otro</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Ocupación Actual</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Dirección Redisencia</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Teléfono Fijo</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Celular</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Correo Electronico</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-element-list mg-t-30">
+                            <div class="cmp-tb-hd">
+                                <h2>Información Familiar</h2>
+                            </div>
+                            <div class="row">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-element-list mg-t-30">
+                            <div class="cmp-tb-hd">
+                                <h2>Input Mask</h2>
+                                <p>An input mask helps the user with the input. This can be useful for dates, numerics, phone numbers etc...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Form Element area End-->
+@endsection
+
+@section('js')
+
 @endsection
