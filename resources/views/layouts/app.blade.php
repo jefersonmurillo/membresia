@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/icon.png') }}">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -78,6 +78,7 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
 
     @yield('css')
 </head>
@@ -183,12 +184,10 @@
     <!-- plugins JS
 		============================================ -->
     <script src="{{ asset('js/plugins.js') }}"></script>
+
     <!-- main JS
 		============================================ -->
     <script src="{{ asset('js/main.js') }}"></script>
-    <!-- tawk chat JS
-        ============================================ -->
-    <script src="{{ asset('js/tawk-chat.js') }}"></script>
 
     @yield('js')
 </body>

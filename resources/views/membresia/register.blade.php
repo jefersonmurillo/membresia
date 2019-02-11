@@ -1,7 +1,30 @@
 @extends('layouts.app')
 
 @section('css')
+    <style>
+        input[type="file"]#exampleFormControlFile1 {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
 
+        label[for="exampleFormControlFile1"] {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            background-color: #00338d;
+            display: inline-block;
+            transition: all .5s;
+            cursor: pointer;
+            padding: 15px 40px !important;
+            text-transform: uppercase;
+            width: fit-content;
+            text-align: center;
+        }
+    </style>
 @endsection
 
 @section('nav')
@@ -140,6 +163,62 @@
                             </div>
 
                             <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Ocupación Actual</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Dirección Redisencia</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Teléfono Fijo</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Celular</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Correo Electronico</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="form-example-int">
                                         <div class="form-group">
@@ -228,60 +307,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <div class="form-example-int">
-                                        <div class="form-group">
-                                            <label><strong>Ocupación Actual</strong></label>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control input-sm">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                    <div class="form-example-int">
-                                        <div class="form-group">
-                                            <label><strong>Dirección Redisencia</strong></label>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control input-sm" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <div class="form-example-int">
-                                        <div class="form-group">
-                                            <label><strong>Teléfono Fijo</strong></label>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control input-sm">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <div class="form-example-int">
-                                        <div class="form-group">
-                                            <label><strong>Celular</strong></label>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control input-sm" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                    <div class="form-example-int">
-                                        <div class="form-group">
-                                            <label><strong>Correo Electronico</strong></label>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control input-sm" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -292,7 +317,62 @@
                                 <h2>Información Familiar</h2>
                             </div>
                             <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <h5>Estado civil</h5>
+                                    <div class="bootstrap-select fm-cmp-mg">
+                                        <select class="selectpicker">
+                                            <option value="">Soltero</option>
+                                            <optgroup label="Casado">
+                                                <option>Por la noteria</option>
+                                                <option>Por la IPUC</option>
+                                            </optgroup>
+                                            <option value="">Viudo (a)</option>
+                                            <option value="">Divorciado (a)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="nk-int-mk sl-dp-mn">
+                                        <h5>Por IPUC</h5>
+                                    </div>
+                                    <div class="bootstrap-select fm-cmp-mg">
+                                        <select class="selectpicker">
+                                            <option>Si</option>
+                                            <option>No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="nk-int-mk sl-dp-mn">
+                                        <h5>Concepto Recibido</h5>
+                                    </div>
+                                    <div class="bootstrap-select fm-cmp-mg">
+                                        <select class="selectpicker">
+                                            <option>Favorable</option>
+                                            <option>Desfavorable</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlFile1">Abjuntar</label>
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="row">
+
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-example-int">
+                                        <div class="form-group">
+                                            <label><strong>Nombre Conyuge</strong></label>
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-sm" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -307,6 +387,37 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-element-list mg-t-30">
+                            <div class="cmp-tb-hd">
+                                <h2>Input Mask</h2>
+                                <p>An input mask helps the user with the input. This can be useful for dates, numerics, phone numbers etc...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-element-list mg-t-30">
+                            <div class="cmp-tb-hd">
+                                <h2>Input Mask</h2>
+                                <p>An input mask helps the user with the input. This can be useful for dates, numerics, phone numbers etc...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-element-list mg-t-30">
+                            <div class="cmp-tb-hd">
+                                <h2>Input Mask</h2>
+                                <p>An input mask helps the user with the input. This can be useful for dates, numerics, phone numbers etc...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </form>
     </div>
