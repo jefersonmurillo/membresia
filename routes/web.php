@@ -20,3 +20,9 @@ Route::prefix('membresia')->group(function () {
         return view('membresia.register');
     })->name('membresia.registro');
 });
+
+Route::post('p', 'Controller@index')->name('p');
+
+Route::get('foto', function(){
+    return view('welcome');
+});
