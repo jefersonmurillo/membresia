@@ -77,6 +77,7 @@ function alisarTrazado(ry) {
         }
         ctx.quadraticCurveTo(ry[ultimoPunto - 1].x, ry[ultimoPunto - 1].y, ry[ultimoPunto].x, ry[ultimoPunto].y);
         ctx.stroke();
+        $('#firma-data').val(canvas.toDataURL("image/png"));
     }
 }
 

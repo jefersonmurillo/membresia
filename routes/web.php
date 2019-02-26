@@ -16,9 +16,8 @@ Route::get('/', function () {
 });
 
 Route::prefix('membresia')->group(function () {
-    Route::get('registro', function(){
-        return view('membresia.register');
-    })->name('membresia.registro');
+    Route::get('registro', 'MiembroController@index')->name('membresia.registro');
+    Route::post('registro', 'MiembroController@store')->name('membresia.store');
 });
 
 Route::post('p', 'Controller@index')->name('p');

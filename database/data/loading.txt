@@ -1,0 +1,2 @@
+LOAD DATA INFILE 'C:/xampp/htdocs/membresia/database/data/departamentos.txt' INTO TABLE departamento;
+LOAD DATA INFILE 'C:/xampp/htdocs/membresia/database/data/municipios.txt' INTO TABLE municipio;

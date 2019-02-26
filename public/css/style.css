@@ -3958,6 +3958,15 @@ textarea.auto-size {
     margin-right: 20px;
     margin-bottom: 5px;
 }
+
+.img-preview-custom-firma {
+    height: 150px;
+    width: 480px;
+    overflow: hidden;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
 .image-crp-img {
     margin-top: 30px;
 }

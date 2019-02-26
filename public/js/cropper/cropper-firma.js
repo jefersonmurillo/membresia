@@ -2,16 +2,16 @@
     "use strict";
 
 
-    var $image = $(".image-crop > img")
+    var $image = $(".image-crop-firma > img")
     $($image).cropper({
-        aspectRatio: 0.78,
-        preview: ".img-preview",
+        aspectRatio: 3.2,
+        preview: ".img-preview2",
         done: function(data) {
             // Output the result data for cropping image.
         }
     });
 
-    var $inputImage = $("#inputImage");
+    var $inputImage = $("#inputImageFirma");
     if (window.FileReader) {
         $inputImage.change(function() {
             var fileReader = new FileReader(),
@@ -29,7 +29,7 @@
                 fileReader.onload = function () {
                     $inputImage.val("");
                     $image.cropper("reset", true).cropper("replace", this.result);
-                    $('#image-data').val($image.cropper("getDataURL"));
+                    $('#firma-data').val($image.cropper("getDataURL"));
                 };
             } else {
                 showMessage("Please choose an image file.");
@@ -39,36 +39,37 @@
         $inputImage.addClass("hide");
     }
 
-    $("#download").on('click', function() {
+    $("#downloadFirma").on('click', function() {
         window.open($image.cropper("getDataURL"));
     });
 
-    $("#zoomIn").on('click', function() {
+    $("#zoomInFirma").on('click', function() {
         $image.cropper("zoom", 0.1);
-        $('#image-data').val($image.cropper("getDataURL"));
+        $('#firma-data').val($image.cropper("getDataURL"));
     });
 
-    $("#zoomOut").on('click', function() {
+    $("#zoomOutFirma").on('click', function() {
         $image.cropper("zoom", -0.1);
-        $('#image-data').val($image.cropper("getDataURL"));
+        $('#firma-data').val($image.cropper("getDataURL"));
     });
 
-    $("#rotateLeft").on('click', function() {
+    $("#rotateLeftFirma").on('click', function() {
         $image.cropper("rotate", 45);
-        $('#image-data').val($image.cropper("getDataURL"));
+        $('#firma-data').val($image.cropper("getDataURL"));
     });
 
-    $("#rotateRight").on('click', function() {
+    $("#rotateRightFirma").on('click', function() {
         $image.cropper("rotate", -45);
-        $('#image-data').val($image.cropper("getDataURL"));
+        $('#firma-data').val($image.cropper("getDataURL"));
     });
 
-    $("#setDrag").on('click', function() {
+    $("#setDragFirma").on('click', function() {
         $image.cropper("setDragMode", "crop");
-        $('#image-data').val($image.cropper("getDataURL"));
+        $('#firma-data').val($image.cropper("getDataURL"));
     });
 
-
-
+    $('#confirmar-firma').on('click', function() {
+        $('#firma-data').val($image.cropper("getDataURL"));
+    })
 
 })(jQuery);
