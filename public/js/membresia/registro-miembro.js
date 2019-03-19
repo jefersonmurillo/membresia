@@ -11,7 +11,7 @@ $(document).ready(function(){
 
                 //$('#nombre-conyuge').attr('disabled', true)
             }else{
-                if($(this).val() == 5){
+                if($(this).val() == 4){
                     $('#cmb-concepto').attr('disabled', false);
                     $('#cmb-concepto').attr('required', true);
                 }
@@ -22,22 +22,39 @@ $(document).ready(function(){
 
     $(function() {
         $('form').submit(function(e){
-            let foto = $('#image-data');
-            let nombres = $('#nombres');
-            let apellidos = $('#apellidos');
-            let tipo_doc = $('#tipo_doc');
-            let documento = $('#documento');
-            let ocupacion = $('#ocupacion');
-            let direccion = $('#direccion');
-            let telefono = $('#telefono');
-            let celular = $('#celular');
-            let email = $('#email');
-            let ciudad_nacimiento = $('#ciudad_nacimiento');
-            let fecha_nacimiento = $('#fecha_nacimiento');
+            let foto = $('#image-data').val();
+            let nombres = $('#nombres').val();
+            let apellidos = $('#apellidos').val();
+            let tipo_doc = $('#tipo_doc').val();
+            let documento = $('#documento').val();
+            let ocupacion = $('#ocupacion').val();
+            let direccion = $('#direccion').val();
+            let telefono = $('#telefono').val();
+            let celular = $('#celular').val();
+            let email = $('#email').val();
+            let ciudad_nacimiento = $('#ciudad_nacimiento').val();
+            let fecha_nacimiento = $('#fecha_nacimiento').val();
             let escolaridad = $("input[name='nivel']");
-            let estado_civil = $('#cmb-estado-civil');
+            let estado_civil = $('#cmb-estado-civil').val();
+            let fecha_bautizo = $('#fecha-bautizo').val();
+            let pastor = $('#pastor').val();
+            let ciudad_bautizo = $('#ciudad_bautizo').val();
+            let firma = $('#firma-data').val();
 
-            return false;
+            if(foto === '' || nombres === '' || apellidos === '' || tipo_doc === '' || documento === '' ||
+                direccion === '' || celular === '' || email === '' || fecha_nacimiento === '' ||
+                fecha_bautizo === '' || pastor === '' || firma === ''){
+
+                $('#incorrecto').click();
+                return false;
+            }
+
+            if(tipo_doc === -1 || ciudad_nacimiento === -1 || ciudad_bautizo === -1 || estado_civil === -1){
+                ('#incorrecto').click();
+                return false;
+            }
+
+            return true;
         });
 
     });

@@ -20,8 +20,14 @@ Route::prefix('membresia')->group(function () {
     Route::post('registro', 'MiembroController@store')->name('membresia.store');
 });
 
-Route::post('p', 'Controller@index')->name('p');
-
-Route::get('foto', function(){
+Route::get('p', function(){
     return view('welcome');
+})->name('p');
+
+Route::get('x', function(){
+    return view('informes.registro');
 });
+
+Route::get('foto', 'PdfController@pdf');
+
+Route::post('registro', 'MiembroController@store');

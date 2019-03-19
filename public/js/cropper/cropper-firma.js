@@ -68,8 +68,9 @@
         $('#firma-data').val($image.cropper("getDataURL"));
     });
 
-    $('#confirmar-firma').on('click', function() {
+    $('#confimed-firma').on('click', function() {
         $('#firma-data').val($image.cropper("getDataURL"));
+        console.log($image.cropper("getDataURL"));
     })
 
 })(jQuery);

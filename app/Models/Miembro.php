@@ -7,50 +7,18 @@
 
 namespace App\Models;
 
-use Reliese\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class MiembroController
- * 
- * @property int $id
- * @property int $tipo_miembro
- * @property int $estado_civil
- * @property string $nombres
- * @property string $apellidos
- * @property int $tipo_documento
- * @property string $documento
- * @property \Carbon\Carbon $fecha_naci
- * @property int $mun_naci
- * @property string $ocupacion_actual
- * @property string $direccion_corresp
- * @property string $telefono
- * @property string $celular
- * @property string $correo
- * @property \Carbon\Carbon $fecha_bautizo
- * @property int $mun_bautizo
- * @property string $pastor_bautizo
- * @property \Carbon\Carbon $fecha_espiritu
- * @property string $observaciones
- * @property int $escolaridad
- * @property string $profesion
- * @property string $conyuge
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * 
- * @property \App\Models\Municipio $municipio
- * @property \App\Models\TipoEstudio $tipo_estudio
- * @property \Illuminate\Database\Eloquent\Collection $adjuntos
- * @property \Illuminate\Database\Eloquent\Collection $cargos
- * @property \Illuminate\Database\Eloquent\Collection $congregacions
- * @property \Illuminate\Database\Eloquent\Collection $ninios
  *
- * @package App\Models
- */
-class Miembro extends Eloquent
+ **/
+
+class Miembro extends Model
 {
 	protected $table = 'miembro';
 
-	protected $casts = [
+	/*protected $casts = [
 		'tipo_miembro' => 'int',
 		'estado_civil' => 'int',
 		'tipo_documento' => 'int',
@@ -63,7 +31,7 @@ class Miembro extends Eloquent
 		'fecha_naci',
 		'fecha_bautizo',
 		'fecha_espiritu'
-	];
+	];*/
 
 	protected $fillable = [
 		'tipo_miembro',
@@ -86,15 +54,26 @@ class Miembro extends Eloquent
 		'observaciones',
 		'escolaridad',
 		'profesion',
-		'conyuge'
+		'conyuge',
+        'foto',
+        'firma',
+        'concepto_recibido'
 	];
+
+	public function mun_naci(){
+	    return $this->belongsTo(Municipio::class, 'mun_naci');
+    }
+
+    public function escolaridad(){
+	    return $this->belongsTo(TipoEstudio::class, 'escolaridad');
+    }
 
 	public function estado_civil()
 	{
 		return $this->belongsTo(EstadoCivil::class, 'estado_civil');
 	}
 
-	public function municipio()
+	public function mun_bautizo()
 	{
 		return $this->belongsTo(Municipio::class, 'mun_bautizo');
 	}

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('css')
+    <link rel="stylesheet" href="{{ asset('css/dialog/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dialog/dialog.css') }}">
     <link rel="stylesheet" href="{{ asset('css/membresia/style.css') }}">
 @endsection
 
@@ -73,9 +75,10 @@
                                                         <p>Carga y ajusta la foto para el registro de membresia</p>
                                                         <div class="material-design-btn">
                                                             <div class="btn-group images-cropper-pro">
-                                                                <label title="Upload image file" for="inputImage" class="btn btn-primary img-cropper-cp">
-                                                                    <input type="file" accept="image/*" name="file" id="inputImage" class="hide"> Cargar Foto
+                                                                <label title="Upload image file" for="inputImage" class="btn btn-primary img-cropper-cp" style="margin-right: 10px;">
+                                                                    <input type="file" accept="image/*" name="file" id="inputImage" class="hide"> Cargar
                                                                 </label>
+                                                                <button id="confimed-foto" class="btn btn-success" data-type="success" data-animation-in="animated fadeInRight" data-animation-Out="animated fadeOutRight" >Confirmar</button>
                                                                 <input type="hidden" name="image-data" id="image-data">
                                                             </div>
                                                         </div>
@@ -117,7 +120,7 @@
                                     <div class="form-group">
                                         <label><strong>Congregación</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" value="Camilo Daza" disabled="" name="congregacion" >
+                                            <input type="text" class="form-control input-sm" value="Camilo Daza" disabled="" name="congregacion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +131,7 @@
                                         <label><strong>Fecha de Registro</strong></label>
                                         <div class="input-group date nk-int-st">
                                             <span class="input-group-addon"></span>
-                                            <input type="text" class="form-control" value="{{ date('m/j/Y') }}" name="fecha-registro" >
+                                            <input type="text" class="form-control" value="{{ date('m/j/Y') }}" name="fecha-registro" required>
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +141,7 @@
                                     <div class="form-group">
                                         <label><strong>N° Registro</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="n-registro" value="{{$n}}" disabled="">
+                                            <input type="text" class="form-control input-sm" name="n-registro" value="{{$n}}" disabled="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -151,7 +154,7 @@
                                     <div class="form-group">
                                         <label><strong>Nombres</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="nombres" id="nombres">
+                                            <input type="text" class="form-control input-sm" name="nombres" id="nombres" required>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +164,7 @@
                                     <div class="form-group">
                                         <label><strong>Apellidos</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="apellidos" id="apellidos">
+                                            <input type="text" class="form-control input-sm" name="apellidos" id="apellidos" required>
                                         </div>
                                     </div>
                                 </div>
@@ -174,8 +177,8 @@
                                     <div class="form-group">
                                         <label><strong>Tipo Documento</strong></label>
                                         <div class="bootstrap-select fm-cmp-mg">
-                                            <select class="selectpicker" name="tipo-doc" id="tipo_doc">
-                                                <option value="">Seleccione una opcion</option>
+                                            <select class="selectpicker" name="tipo-doc" id="tipo_doc" required>
+                                                <option value="-1">Seleccione una opcion</option>
                                                 @foreach($tiposDocumentos as $tipo)
                                                     <option value="{{ $tipo['id'] }}">{{ $tipo['name'] }}</option>
                                                 @endforeach
@@ -189,7 +192,7 @@
                                     <div class="form-group">
                                         <label><strong>Numero documento</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="documento" id="documento">
+                                            <input type="text" class="form-control input-sm" name="documento" id="documento" required>
                                         </div>
                                     </div>
                                 </div>
@@ -202,7 +205,7 @@
                                     <div class="form-group">
                                         <label><strong>Ocupación Actual</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="ocupacion" id="ocupacion">
+                                            <input type="text" class="form-control input-sm" name="ocupacion" id="ocupacion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -212,7 +215,7 @@
                                     <div class="form-group">
                                         <label><strong>Dirección Redisencia</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="direccion" id="direccion">
+                                            <input type="text" class="form-control input-sm" name="direccion" id="direccion" required>
                                         </div>
                                     </div>
                                 </div>
@@ -225,7 +228,7 @@
                                     <div class="form-group">
                                         <label><strong>Teléfono Fijo</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="telefono" id="telefono">
+                                            <input type="text" class="form-control input-sm" name="telefono" id="telefono" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -235,7 +238,7 @@
                                     <div class="form-group">
                                         <label><strong>Celular</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="celular" id="celular">
+                                            <input type="text" class="form-control input-sm" name="celular" id="celular" required>
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +248,7 @@
                                     <div class="widget-form">
                                         <label><strong>Correo Electronico</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="email" class="form-control input-sm" name="correo" id="email">
+                                            <input type="email" class="form-control input-sm" name="correo" id="email" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -258,8 +261,8 @@
                                     <h2>Lugar de nacimiento</h2>
                                 </div>
                                 <div class="chosen-select-act">
-                                    <select class="chosen" data-placeholder="Your Favorite Football Team" name="ciudad_nacimiento" id="ciudad_nacimiento">
-                                        <option value="">Seleccione una opción</option>
+                                    <select class="chosen" data-placeholder="Your Favorite Football Team" name="ciudad_nacimiento" id="ciudad_nacimiento" required>
+                                        <option value="-1">Seleccione una opción</option>
                                         @foreach($departamentos as $departamento)
                                             <optgroup label="{{ $departamento->departamento }}">
                                                 @foreach($departamento->municipios as $municipio)
@@ -276,7 +279,7 @@
                                         <label><strong>Fecha de Nacimiento</strong></label>
                                         <div class="input-group date nk-int-st">
                                             <span class="input-group-addon"></span>
-                                            <input type="text" class="form-control" name="fecha-nacimiento" placeholder="Fecha Nacimiento" id="fecha_nacimiento">
+                                            <input type="text" class="form-control" name="fecha-nacimiento" placeholder="Fecha Nacimiento" id="fecha_nacimiento" required>
                                         </div>
                                     </div>
                                 </div>
@@ -301,32 +304,32 @@
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                 <div class="fm-checkbox">
-                                    <label onclick="inhabilitarInputProfesion()"><input type="radio" value="1" name="nivel" class="i-checks" onclick="inhabilitarInputProfesion()"> <i onclick="inhabilitarInputProfesion()"></i>Primaria</label>
+                                    <label onclick="inhabilitarInputProfesion()"><input required type="radio" value="1" name="nivel" class="i-checks" onclick="inhabilitarInputProfesion()"> <i onclick="inhabilitarInputProfesion()"></i>Primaria</label>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                 <div class="fm-checkbox">
-                                    <label onclick="inhabilitarInputProfesion()"><input type="radio" value="2" name="nivel" class="i-checks" onclick="inhabilitarInputProfesion()"> <i onclick="inhabilitarInputProfesion()"></i>Secundaria</label>
+                                    <label onclick="inhabilitarInputProfesion()"><input required type="radio" value="2" name="nivel" class="i-checks" onclick="inhabilitarInputProfesion()"> <i onclick="inhabilitarInputProfesion()"></i>Secundaria</label>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                 <div class="fm-checkbox">
-                                    <label onclick="habilitarInputProfesion()"><input type="radio" value="3" name="nivel" class="i-checks" onclick="habilitarInputProfesion()"> <i onclick="habilitarInputProfesion()"></i>Técnico</label>
+                                    <label onclick="habilitarInputProfesion()"><input required type="radio" value="3" name="nivel" class="i-checks" onclick="habilitarInputProfesion()"> <i onclick="habilitarInputProfesion()"></i>Técnico</label>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                 <div class="fm-checkbox">
-                                    <label onclick="habilitarInputProfesion()"><input type="radio" value="4" name="nivel" class="i-checks" onclick="habilitarInputProfesion()"> <i onclick="habilitarInputProfesion()"></i>Tecnólogo</label>
+                                    <label onclick="habilitarInputProfesion()"><input required type="radio" value="4" name="nivel" class="i-checks" onclick="habilitarInputProfesion()"> <i onclick="habilitarInputProfesion()"></i>Tecnólogo</label>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                 <div class="fm-checkbox">
-                                    <label onclick="habilitarInputProfesion()"><input type="radio" value="5" name="nivel" class="i-checks" onclick="habilitarInputProfesion()"> <i onclick="habilitarInputProfesion()"></i>Superior</label>
+                                    <label onclick="habilitarInputProfesion()"><input required type="radio" value="5" name="nivel" class="i-checks" onclick="habilitarInputProfesion()"> <i onclick="habilitarInputProfesion()"></i>Superior</label>
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                 <div class="fm-checkbox">
-                                    <label onclick="habilitarInputProfesion()"><input type="radio" value="6" name="nivel" class="i-checks" onclick="habilitarInputProfesion()"> <i onclick="habilitarInputProfesion()"></i>Otro</label>
+                                    <label onclick="habilitarInputProfesion()"><input required type="radio" value="6" name="nivel" class="i-checks" onclick="habilitarInputProfesion()"> <i onclick="habilitarInputProfesion()"></i>Otro</label>
                                 </div>
                             </div>
                         </div>
@@ -337,7 +340,7 @@
                                     <div class="form-group">
                                         <strong><h5>Cual?</h5></strong>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="profesion" id="profesion">
+                                            <input type="text" class="form-control input-lg" name="profesion" id="profesion" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -358,7 +361,8 @@
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 <h5>Estado civil</h5>
                                 <div class="bootstrap-select fm-cmp-mg">
-                                    <select class="selectpicker" id="cmb-estado-civil">
+                                    <select class="selectpicker" id="cmb-estado-civil" name="estado-civil" required>
+                                        <option value="-1">Seleccione una opción</option>
                                         @foreach($estadosCiviles as $estado)
                                             <option value="{{$estado['id']}}">{{$estado['name']}}</option>
                                         @endforeach
@@ -382,7 +386,7 @@
                                 <div class="form-example-int">
                                     <div class="material-design-btn" data-toggle="tooltip" data-placement="top" title="Concepto recibido">
                                         <div class="box">
-                                            <input type="file" name="file-5" id="file-5" class="inputfile inputfile-4" />
+                                            <input type="file" name="concepto" id="file-5" class="inputfile inputfile-4" />
                                             <label for="file-5"><figure id="label-concepto"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span>Concepto</span></label>
                                         </div>
                                     </div>
@@ -397,7 +401,7 @@
                                     <div class="form-group">
                                         <label><strong>Nombre Conyuge</strong></label>
                                         <div class="nk-int-st">
-                                            <input name="nombre-conyuge" type="text" class="form-control input-sm" disabled id="nombre-conyuge">
+                                            <input name="nombre-conyuge" type="text" class="form-control input-sm" disabled id="nombre-conyuge" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -440,7 +444,7 @@
                                         <label><strong>Fecha de Bautizo</strong></label>
                                         <div class="input-group date nk-int-st">
                                             <span class="input-group-addon"></span>
-                                            <input type="text" class="form-control" name="fecha-bautiso" placeholder="Fecha de bautizo" >
+                                            <input type="text" class="form-control" name="fecha-bautiso" placeholder="Fecha de bautizo" id="fecha-bautizo" required>
                                         </div>
                                     </div>
                                 </div>
@@ -451,7 +455,7 @@
                                     <div class="form-group">
                                         <label><strong>Pastor que lo Bautizó</strong></label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-sm" name="pastor">
+                                            <input type="text" class="form-control input-sm" name="pastor" id="pastor" required>
                                         </div>
                                     </div>
                                 </div>
@@ -462,8 +466,8 @@
                                     <h2>Ciudad Bautizo</h2>
                                 </div>
                                 <div class="chosen-select-act">
-                                    <select class="chosen" data-placeholder="Your Favorite Football Team" name="ciudad_bautizo">
-                                        <option value="">Seleccione una opción</option>
+                                    <select class="chosen" data-placeholder="Your Favorite Football Team" name="ciudad_bautizo" id="ciudad_bautizo" required>
+                                        <option value="-1">Seleccione una opción</option>
                                         @foreach($departamentos as $departamento)
                                             <optgroup label="{{ $departamento->departamento }}">
                                                 @foreach($departamento->municipios as $municipio)
@@ -484,7 +488,7 @@
                                         <label><strong>Fecha recepción del Espiritu Santo</strong></label>
                                         <div class="input-group date nk-int-st">
                                             <span class="input-group-addon"></span>
-                                            <input type="text" class="form-control" name="fecha-esp" placeholder="Fecha recepción" >
+                                            <input type="text" class="form-control" name="fecha-esp" placeholder="Fecha recepción" value="" required>
                                         </div>
                                     </div>
                                 </div>
@@ -495,7 +499,7 @@
                                     <div class="form-group">
                                         <label><strong>Cargos</strong></label>
                                         <div class="chosen-select-act fm-cmp-mg">
-                                            <select class="chosen" multiple data-placeholder="Seleccione" name="cargos[]">
+                                            <select class="chosen" multiple data-placeholder="Seleccione" name="cargos[]" id="cargos">
                                                 @foreach($cargos as $cargo)
                                                     <option value="{{ $cargo['id'] }}">{{ $cargo['name'] }}</option>
                                                 @endforeach
@@ -536,15 +540,17 @@
                                         <h4>Firma o Huella</h4>
                                         <p>Carga y ajusta la firma o huella para el registro de membresia</p>
                                         <div class="material-design-btn">
-                                            <div class="btn-group images-cropper-pro">
-                                                <label title="Upload image file" for="inputImageFirma" class="btn btn-primary img-cropper-cp">
-                                                    <input type="file" accept="image/*" name="file" id="inputImageFirma" class="hide"> Cargar
-                                                </label>
 
-                                                <input type="hidden" name="image-data" id="firma-data">
-                                            </div>
                                             <div class="btn-group images-action-pro">
-                                                <button class="btn btn-white" id="confirmar-firma" type="button">Confirmar</button>
+                                                <div class="btn-group images-cropper-pro">
+                                                    <label title="Upload image file" for="inputImageFirma" class="btn btn-primary img-cropper-cp" style="margin-right: 10px;">
+                                                        <input type="file" accept="image/*" name="file" id="inputImageFirma" class="hide"> Cargar
+                                                    </label>
+
+                                                    <input type="hidden" name="firma-data" id="firma-data">
+                                                </div>
+
+                                                <button id="confimed-firma" class="btn btn-success" data-type="success" data-animation-in="animated fadeInRight" data-animation-Out="animated fadeOutRight" >Confirmar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -559,10 +565,10 @@
                                         <h4>Opciones</h4>
                                         <div class="material-design-btn">
                                             <div class="btn-group images-action-pro">
-                                                <button class="btn btn-white" id="zoomInFirma" type="button">Acercar</button>
-                                                <button class="btn btn-white" id="zoomOutFirma" type="button">Alejar</button>
-                                                <button class="btn btn-white" id="rotateLeftFirma" type="button">Rotar Derecha</button>
-                                                <button class="btn btn-white" id="rotateRightFirma" type="button">Rotar Izquierda</button>
+                                                <button class="btn btn-white" id="zoomInFirma" type="button" style="margin-right: 3px;">Acercar</button>
+                                                <button class="btn btn-white" id="zoomOutFirma" type="button" style="margin-right: 3px;">Alejar</button>
+                                                <button class="btn btn-white" id="rotateLeftFirma" type="button" style="margin-right: 3px;">Rotar Derecha</button>
+                                                <button class="btn btn-white" id="rotateRightFirma" type="button" style="margin-right: 3px;">Rotar Izquierda</button>
                                             </div>
                                         </div>
                                     </div>
@@ -572,13 +578,83 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-element-list mg-t-30">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="material-design-btn">
+                                    <center>
+                                        <div class="btn-group images-action-pro">
+                                            <button class="btn notika-btn-ipuc btn-reco-mg btn-button-mg" type="submit">Registrar</button>
+                                        </div>
+                                    </center>
+                                </div>
+                            </div>
+                            <input type="hidden" name="" id="incorrecto" data-toggle="modal" data-target="#myModalseven">
+                            <input type="hidden" name="" id="exito" data-toggle="modal" data-target="#modalRegistre">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     </form>
     <!-- Form Element area End-->
+
+    <!-- Modals -->
+    <div class="modal animated shake" id="myModalseven" role="dialog">
+        <div class="modal-dialog modals-default">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2>Registro de Membresia!</h2>
+                    <p>Es posile que haya olvidado registrar algunos campos, por favor revise nuevamente el formulario y diligencie todos los campos requeridos.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- modal registro --}}
+    <div class="modal animated bounce" id="modalRegistre" role="dialog">
+        <div class="modal-dialog modals-default">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2>Registro de Membresia!</h2>
+                    <p>La Iglesia Pentecostal Unida de Colombia le informa que todos los datos han sido registrados exitosamente en el libro de membresia.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
+    <script src="{{ asset('js/dialog/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('js/dialog/dialog-active.js') }}"></script>
     <script src="{{ asset('js/cropper/cropper-firma.js') }}"></script>
     <script src="{{ asset('js/membresia/registro-miembro.js') }}"></script>
-    <script src="{{ asset('js/membresia/firma.js') }}"></script>
+
+    <script>
+        $(document).ready(function(){
+            let exist = '{{Session::has('alert')}}';
+            if(exist){
+                $('#exito').click();
+            }
+
+        })
+    </script>
 @endsection

@@ -68,6 +68,11 @@
         $('#image-data').val($image.cropper("getDataURL"));
     });
 
+    $("#confimed-foto").on('click', function() {
+        $('#image-data').val($image.cropper("getDataURL"));
+        console.log($image.cropper("getDataURL"));
+    });
+
 
 
 

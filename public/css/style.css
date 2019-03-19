@@ -4033,6 +4033,7 @@ textarea.auto-size {
 	padding:0px;
 	border-radius:0px;
 	margin:0px 0px;
+    font-size: 14px;
 }
 .widget-form input[type="email"]:focus, .cmp-email-over input[type="email"]:focus, .widget-form input[type="number"]:focus, .cmp-email-over input[type="text"]:focus, .widget-form textarea:focus {
 	box-shadow:none;
@@ -4041,6 +4042,7 @@ textarea.auto-size {
     border-right: 0px solid #ccc;
     border-bottom: 1px solid #ccc;
 	padding:0px;
+    font-size: 14px;
 }
 .btn-group.nk-email-inbox .btn-default{
 	border: 1px solid transparent;

@@ -69,5 +69,8 @@
 		});
 	});
 
+	/*$('#incorrecto').on('click', function(){
+		swal("Registro de Membresia!", "Es posile que haya olvidado registrar algunos campos, por favor revise nuevamente el formulario y diligencie todos los campos requeridos.")
+	});*/
  
 })(jQuery); 

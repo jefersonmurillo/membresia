@@ -21,7 +21,7 @@
     color:#fff!important
 }
 .alert-success{
-    background-color:#4CAF50;
+    background-color:#00338d;
     color:#fff
 }
 .alert-success .alert-link{
@@ -113,10 +113,10 @@
     background-color: #454545;
 }
 .notification-demo .btn-success {
-    background-color: #4CAF50;
+    background-color: #00338d;
 }
 .notification-demo .btn-success:hover {
-    background-color: #4CAF50;
+    background-color: #00338d;
 }
 .notification-demo .btn-warning {
     background-color: #FF9800;

@@ -4,11 +4,11 @@
 	/*
 	 * Notifications
 	 */
-	function notify(from, align, icon, type, animIn, animOut){
+	function notify(from, align, icon, type, animIn, animOut, message, title){
 		$.growl({
 			icon: icon,
-			title: ' Bootstrap Growl ',
-			message: 'Turning standard Bootstrap alerts into awesome notifications',
+			title: title,
+			message: message,
 			url: ''
 		},{
 				element: 'body',
@@ -46,7 +46,7 @@
 		});
 	};
 	
-	$('.notification-demo .btn').on('click', function(e){
+	$('#confimed-firma').on('click', function(e){
 		e.preventDefault();
 		var nFrom = $(this).attr('data-from');
 		var nAlign = $(this).attr('data-align');
@@ -54,9 +54,20 @@
 		var nType = $(this).attr('data-type');
 		var nAnimIn = $(this).attr('data-animation-in');
 		var nAnimOut = $(this).attr('data-animation-out');
-		
-		notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+
+		notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut, 'La Firma ha sido confirmada!');
 	});
 
- 
+	$('#confimed-foto').on('click', function(e){
+		e.preventDefault();
+		var nFrom = $(this).attr('data-from');
+		var nAlign = $(this).attr('data-align');
+		var nIcons = $(this).attr('data-icon');
+		var nType = $(this).attr('data-type');
+		var nAnimIn = $(this).attr('data-animation-in');
+		var nAnimOut = $(this).attr('data-animation-out');
+
+		notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut, 'La foto ha sido confirmada!');
+	});
+
 })(jQuery); 
