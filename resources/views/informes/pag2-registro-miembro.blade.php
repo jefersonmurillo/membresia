@@ -2,12 +2,13 @@
 <!-- Netscape * Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Report</title>
+    <title>IPUC | Membresia</title>
+    <link rel="shortcut icon" type="image/x-icon" href="'img/icon.png'">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    </meta>
     <style type="text/css">
         body{
             font-family: Calibri;
+            font-size: 13px;
         }
         .s15f9d109{Font:8pt Arial;border:0px;text-align:left;vertical-align:top;line-height:1.15em;word-wrap:break-word;}
         .s7123b46b{Font:8pt Arial;border:0px;text-align:center;vertical-align:middle;line-height:1.15em;word-wrap:break-word;}
@@ -173,7 +174,7 @@
         <td style="border:0px;height:15px;width:14px;"></td>
         <td class="s7123b46b" colspan="3" rowspan="5" style="white-space:nowrap;height:120px;width:99px;line-height:0;">
             <div style="height:120px;width:99px;display:table-cell;text-align:center;vertical-align:middle;">
-                <div style="max-height:120px;max-width:99px;overflow:hidden;"><img src="{{$foto}}" height="130.20833333333334px" width="104.16666666666667px" style="border-width:0px;margin-top:-5px;margin-left:-2px;" /></div>
+                <div style="max-height:120px;max-width:99px;overflow:hidden;"><img src="{{ $foto }}" height="130.20833333333334px" width="104.16666666666667px" style="border-width:0px;margin-top:-5px;margin-left:-2px;" /></div>
             </div>
         </td>
         <td style="border:0px;height:15px;width:15px;"></td>
@@ -1615,18 +1616,18 @@
         <td style="border:0px;height:23px;width:8px;"></td>
         <td style="border:0px;height:23px;width:7px;"></td>
         <td class="s2c91771b" colspan="10" style="white-space:nowrap;height:23px;width:84px;max-height:23px;max-width:84px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">NOMBRES 1: </td>
-        <td class="s3315e42a" colspan="41" style="white-space:nowrap;height:23px;width:272px;max-height:23px;max-width:272px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">FLAVIO MIGUEL DEL TORO CASTRO TELLEZ</td>
-        <td class="s2c91771b" colspan="8" style="white-space:nowrap;height:23px;width:83px;max-height:23px;max-width:83px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">NOMBRES 1: </td>
-        <td class="s3315e42a" colspan="20" style="white-space:nowrap;height:23px;width:272px;max-height:23px;max-width:272px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">FLAVIO MIGUEL DEL TORO CASTRO TELLEZ</td>
+        <td class="s3315e42a" colspan="41" style="white-space:nowrap;height:23px;width:272px;max-height:23px;max-width:272px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">{{$hijo1}}</td>
+        <td class="s2c91771b" colspan="8" style="white-space:nowrap;height:23px;width:83px;max-height:23px;max-width:83px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">NOMBRES 2: </td>
+        <td class="s3315e42a" colspan="20" style="white-space:nowrap;height:23px;width:272px;max-height:23px;max-width:272px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">{{ $hijo2 }}</td>
         <td style="border:0px;height:23px;width:15px;"></td>
     </tr>
     <tr style="height:8px;">
         <td style="border:0px;height:8px;width:8px;"></td>
         <td style="border:0px;height:8px;width:7px;"></td>
-        <td class="s2c91771b" colspan="10" rowspan="2" style="white-space:nowrap;height:31px;width:84px;max-height:31px;max-width:84px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">NOMBRES 1: </td>
-        <td class="sdd5dc4c3" colspan="41" rowspan="2" style="white-space:nowrap;height:31px;width:272px;max-height:31px;max-width:272px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">FLAVIO MIGUEL DEL TORO CASTRO TELLEZ</td>
-        <td class="s2c91771b" colspan="8" rowspan="2" style="white-space:nowrap;height:31px;width:83px;max-height:31px;max-width:83px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">NOMBRES 1: </td>
-        <td class="sdd5dc4c3" colspan="20" rowspan="2" style="white-space:nowrap;height:31px;width:272px;max-height:31px;max-width:272px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">FLAVIO MIGUEL DEL TORO CASTRO TELLEZ</td>
+        <td class="s2c91771b" colspan="10" rowspan="2" style="white-space:nowrap;height:31px;width:84px;max-height:31px;max-width:84px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">NOMBRES 3: </td>
+        <td class="sdd5dc4c3" colspan="41" rowspan="2" style="white-space:nowrap;height:31px;width:272px;max-height:31px;max-width:272px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">{{ $hijo3 }}</td>
+        <td class="s2c91771b" colspan="8" rowspan="2" style="white-space:nowrap;height:31px;width:83px;max-height:31px;max-width:83px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">NOMBRES 4: </td>
+        <td class="sdd5dc4c3" colspan="20" rowspan="2" style="white-space:nowrap;height:31px;width:272px;max-height:31px;max-width:272px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">{{ $hijo4 }}</td>
         <td style="border:0px;height:8px;width:15px;"></td>
     </tr>
     <tr style="height:23px;">
@@ -2123,7 +2124,7 @@
     <tr style="height:15px;">
         <td style="border:0px;height:15px;width:8px;"></td>
         <td style="border:0px;height:15px;width:7px;"></td>
-        <td class="sfd6a2efe" colspan="46" rowspan="2" style="white-space:nowrap;height:30px;width:318px;"></td>
+        <td class="sfd6a2efe" colspan="46" rowspan="2" style="white-space:nowrap;height:30px;width:318px;"><img style="width: 250px;" src="{{ $firma_creyente }}" alt=""></td>
         <td style="border:0px;height:15px;width:15px;"></td>
         <td style="border:0px;height:15px;width:8px;"></td>
         <td style="border:0px;height:15px;width:7px;"></td>
@@ -2143,7 +2144,9 @@
         <td style="border:0px;height:15px;width:1px;"></td>
         <td style="border:0px;height:15px;width:7px;"></td>
         <td class="s2c91771b" colspan="12" rowspan="2" style="white-space:nowrap;height:23px;width:136px;max-height:23px;max-width:136px;overflow:hidden;text-overflow:clip;box-sizing:border-box;">FIRMA DEL PASTOR</td>
-        <td class="sfd6a2efe" colspan="15" style="white-space:nowrap;height:15px;width:212px;"></td>
+        <td class="sfd6a2efe" colspan="15" style="white-space:nowrap;height:15px;width:212px;">
+            <img style="width: 250px;" src="{{ $firma_creyente }}" alt="">
+        </td>
         <td style="border:0px;height:15px;width:15px;"></td>
     </tr>
     <tr style="height:8px;">

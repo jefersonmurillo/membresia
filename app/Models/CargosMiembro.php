@@ -34,8 +34,7 @@ class CargosMiembro extends Eloquent
 		'cargo'
 	];
 
-	public function cargo()
-	{
+	public function cargo(){
 		return $this->belongsTo(Cargo::class, 'cargo');
 	}
 

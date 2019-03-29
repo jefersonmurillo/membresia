@@ -4,7 +4,7 @@
 
     var $image = $(".image-crop-firma > img")
     $($image).cropper({
-        aspectRatio: 3.2,
+        aspectRatio: 1200/200,
         preview: ".img-preview2",
         done: function(data) {
             // Output the result data for cropping image.

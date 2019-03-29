@@ -82,61 +82,16 @@
     <link rel="stylesheet" href="{{ asset('css/dropzone/dropzone.css') }}">
     <!-- style CSS
             ============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/membresia/style.css') }}">
 
+    @yield('css')
 
-
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/customfileinputs/css/demo.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/customfileinputs/css/component.css') }}" />
 
     <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
-
-
-
-    {{--<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <!-- font awesome CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/owl.transitions.css') }}">
-    <!-- meanmenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/meanmenu/meanmenu.min.css') }}">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
-    <!-- Notika icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/notika-custom-icon.css') }}">
-    <!-- wave CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/wave/waves.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/wave/button.css') }}">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>--}}
-
-    @yield('css')
 </head>
 
 <body>

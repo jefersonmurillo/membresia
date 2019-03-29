@@ -98,11 +98,9 @@ class Miembro extends Model
 		return $this->hasMany(Adjunto::class, 'miembro');
 	}
 
-	public function cargos()
-	{
-		return $this->belongsToMany(Cargo::class, 'cargos_miembro', 'miembro', 'cargo')
-					->withPivot('id');
-	}
+	public function cargos(){
+	    return $this->hasMany(CargosMiembro::class, 'miembro');
+    }
 
 	public function congregacions()
 	{

@@ -11,21 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexController@index')->name('index');
 
 Route::prefix('membresia')->group(function () {
     Route::get('registro', 'MiembroController@index')->name('membresia.registro');
     Route::post('registro', 'MiembroController@store')->name('membresia.store');
+
+    Route::get('miembro-pdf', 'MiembroController@obtenerMiembroPdf')->name('membresia.miembro-pdf');
+    Route::get('libro', 'MiembroController@getLibroMiembros')->name('libro-miembros');
 });
 
 Route::get('p', function(){
-    return view('welcome');
+    dd(\App\Models\Miembro::get(['id', ''])->toArray());
 })->name('p');
 
 Route::get('x', function(){
-    return view('informes.registro');
+    dd(\App\Utility\FormatNumber::convertDateSpanish('2019-03-27'));
 });
 
 Route::get('foto', 'PdfController@pdf');

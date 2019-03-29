@@ -5034,10 +5034,10 @@ module.exports = function(Chart) {
 var color = require(3);
 
 module.exports = function(Chart) {
-	// Global Chart helpers object for utility methods and classes
+	// Global Chart helpers object for Utility methods and classes
 	var helpers = Chart.helpers = {};
 
-	// -- Basic js utility methods
+	// -- Basic js Utility methods
 	helpers.each = function(loopable, callback, self, reverse) {
 		// Check to see if null or undefined firstly.
 		var i, len;

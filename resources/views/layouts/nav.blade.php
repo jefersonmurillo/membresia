@@ -408,7 +408,7 @@
                         <ul class="notika-main-menu-dropdown">
                             <li><a href="{{ route('membresia.registro') }}">Registrar</a>
                             </li>
-                            <li><a href="">Libro</a>
+                            <li><a href="{{ route('libro-miembros') }}">Libro</a>
                             </li>
                         </ul>
                     </div>
