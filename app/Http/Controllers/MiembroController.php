@@ -173,170 +173,45 @@ class MiembroController extends Controller {
 
     }
 
-    public function obtenerMiembroPdf(Request $request){
-        $miembro = Miembro::where(['id' => $request->input('id')])
-            ->with([
-                'mun_bautizo',
-                'tipo_documento',
-                'mun_naci',
-                'escolaridad',
-                'cargos.cargo'
-            ])->get()->toArray()[0];
+    public function updateMiembro(Request $request){
+        $miembro = Miembro::where(['id' => base64_decode($request->get('id'))])->with([
+            'mun_bautizo',
+            'tipo_documento',
+            'mun_naci.departamento',
+            'escolaridad',
+            'cargos.cargo'
+        ])->get()->toArray()[0];
 
-        if(count($miembro) == 0) return redirect()->back()->with('alert', 'Miembro no encontrado');
+        $departamentos = Departamento::with('municipios')->orderBy('departamento', 'asc')->get();
+        $cargos = Cargo::all()->toArray();
+        $estadosCiviles = EstadoCivil::all()->toArray();
+        $tipoDocumento = TipoDocumento::all()->toArray();
 
-        $profesion = $miembro['profesion'];
-        $ocupacion = $miembro['ocupacion_actual'];
-        $direccion = $miembro['direccion_corresp'];
-        $fijo = $miembro['telefono'];
-        $celular = $miembro['celular'];
-        $correo = $miembro['correo'];
+        $fecha_nacimiento = $miembro['fecha_naci'];
+        $fecha_nacimiento = explode('-', $fecha_nacimiento);
+        $fecha_nacimiento = $fecha_nacimiento[2].'/'.$fecha_nacimiento[1].'/'.$fecha_nacimiento[0];
 
-        $estado_civil = $miembro['estado_civil'];
-
-        $soltero = '';
-        $casado = '';
-        $casado_notaria = '';
-        $casado_ipuc = '';
-        $divorciado = '';
-        $viudo = '';
-        $tribunal_si = '';
-        $tribunal_no = '';
-        $favorable = '';
-        $desfavorable = '';
-
-        if($estado_civil == 1) $soltero = 'X';
-        elseif($estado_civil == 2 OR $estado_civil == 2) {
-            $casado = 'X';
-            if($estado_civil == 2) $casado_notaria = 'X';
-            elseif($estado_civil == 3) $casado_ipuc = 'X';
-        }elseif($estado_civil == 4) {
-            $divorciado = 'X';
-            $tribunal_no = 'X';
-        }elseif($estado_civil == 5){
-            $divorciado = 'X';
-            $tribunal_si = 'X';
-        }elseif($estado_civil == 6) $viudo = 'X';
-
-        if($miembro['concepto_recibido'] != null AND $miembro['concepto_recibido'] == 1)
-            $favorable = 'X';
-        elseif($miembro['concepto_recibido'] != null AND $miembro['concepto_recibido'] == 0)
-            $desfavorable = 'X';
-
-        if($miembro['conyuge'] =! null)
-            $conyuge = $miembro['conyuge'];
-        else{
-            $conyuge = '';
-        }
-
-        /**
-         * Terminar
-         */
-        $cantidad_hijos = '0';
-        $hijos = '';
-
-        $fecha_bautizo = $miembro['fecha_bautizo'];
-        $fecha_bautizo = explode('-', $fecha_bautizo);
-
-        $dia_bautizo = $fecha_bautizo[0];
-        $mes_bautizo = $fecha_bautizo[1];
-        $anio_bautizo = $fecha_bautizo[2];
-
-        $ciudad_bautizo = $miembro['mun_bautizo']['municipio'];
+        $fecha_bautizo = explode('-', $miembro['fecha_bautizo']);
+        $fecha_bautizo = $fecha_bautizo[2].'/'.$fecha_bautizo[1].'/'.$fecha_bautizo[0];
 
         $fecha_es = $miembro['fecha_espiritu'];
 
-        $dia_es = '';
-        $mes_es = '';
-        $anio_es = '';
-
-        if(!is_null($fecha_es)){
+        if(!is_null($fecha_es)) {
             $fecha_es = explode('-', $fecha_es);
-
-            $dia_es = $fecha_es[0];
-            $mes_es = $fecha_es[1];
-            $anio_es = $fecha_es[2];
+            $fecha_es = $fecha_es[2].'/'.$fecha_es[1].'/'.$fecha_es[2];
         }
 
-        $cargos = $miembro['cargos'];
-        $cargos1 = '';
-        $cargos2 = '';
+        $miembro['fecha_bautizo'] = $fecha_bautizo;
+        $miembro['fecha_espiritu'] = $fecha_es;
+        $miembro['fecha_naci'] = $fecha_nacimiento;
 
-        foreach ($cargos as $cargo) {
-            $cargos1 .= $cargo['cargo']['name'];
-        }
-
-        $observaciones1 = '';
-        $observaciones2 = '';
-        $observaciones3 = '';
-        $firma_pastor = '';
-        $firma_creyente = '';
-
-        $concecutivo = 1;
-        $foto = '../../img/logo/recuadro4.png';
-        $congregacion = 'Ceci';
-
-        $nuip = 'X';
-        $ti = 'X';
-        $cc = 'X';
-        $documento = 'X';
-        $lugar_fecha_nacimiento = '';
-        $nombres = $miembro['nombres'];
-
-        $data = [
-            'profesion' => $profesion,
-            'ocupacion' => $ocupacion,
-            'direccion' => $direccion,
-            'fijo' => $fijo,
-            'celular' => $celular,
-            'correo' => $correo,
-            'soltero' => $soltero,
-            'casado' => $casado,
-            'casado_notaria' => $casado_notaria,
-            'casado_ipuc' => $casado_ipuc,
-            'divorciado' => $divorciado,
-            'viudo' => $viudo,
-            'tribunal_si' => $tribunal_si,
-            'tribunal_no' => $tribunal_no,
-            'favorable' => $favorable,
-            'desfavorable' => $desfavorable,
-            'conyuge' => $conyuge,
-            'cantidad_hijos' => $cantidad_hijos,
-            'hijos' => $hijos,
-            'dia_bautizo' => $dia_bautizo,
-            'mes_bautizo' => $mes_bautizo,
-            'anio_bautizo' => $anio_bautizo,
-            'ciudad_bautizo' => $ciudad_bautizo,
-            'dia_es' => $dia_es,
-            'mes_es' => $mes_es,
-            'anio_es' => $anio_es,
-            'cargos1' => $cargos1,
-            'cargos2' => $cargos2,
-            'observaciones1' => $observaciones1,
-            'observaciones2' => $observaciones2,
-            'observaciones3' => $observaciones3,
-            'firma_pastor' => $firma_pastor,
-            'firma_creyente' => $firma_creyente,
-            'consecutivo' => $concecutivo,
-            'foto' => $foto,
-            'congregacion' => $congregacion,
-            'nombre' => $nombres,
-            'nuip' => $nuip,
-            'ti' => $ti,
-            'cc' => $cc,
-            'documento' => $documento,
-            'lugar_fecha_nacimiento' => $lugar_fecha_nacimiento,
-            'primaria' => '',
-            'secundaria' => '',
-            'tecnico' => '',
-            'tecnologo' => '',
-            'superior' => '',
-            'otro' => '',
-        ];
-
-        $data['todo'] = true;
-        dd($data['todo']);
-        PDF::obtenerPDFMiembro($data);
+        return view('membresia.edit', [
+            'departamentos' => $departamentos,
+            'cargos' => $cargos,
+            'estadosCiviles' => $estadosCiviles,
+            'tiposDocumentos' => $tipoDocumento,
+            'miembro' => $miembro
+        ]);
     }
 
     public function getLibroMiembros(Request $request){

@@ -80,9 +80,9 @@
                                                             <i class="notika-icon notika-down-arrow"></i>
                                                         </button>
                                                     </a>
-                                                    <button class="btn btn-lightblue lightblue-icon-notika" data-toggle="tooltip" data-placement="top" title="Ver Datos">
+                                                    <a href="{{ route('membresia.edit') }}/?id={{ base64_encode($miembro['id']) }}" class="btn btn-lightblue lightblue-icon-notika" data-toggle="tooltip" data-placement="top" title="Ver Datos">
                                                         <i class="notika-icon notika-next"></i>
-                                                    </button>
+                                                    </a>
                                                     <button class="btn btn-amber amber-icon-notika" data-toggle="tooltip" data-placement="top" title="Modificar Datos">
                                                         <i class="notika-icon notika-menus"></i>
                                                     </button>

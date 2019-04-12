@@ -174,6 +174,7 @@
         <td style="border:0px;height:15px;width:14px;"></td>
         <td class="s7123b46b" colspan="3" rowspan="5" style="white-space:nowrap;height:120px;width:99px;line-height:0;">
             <div style="height:120px;width:99px;display:table-cell;text-align:center;vertical-align:middle;">
+                {{--<div style="max-height:120px;max-width:99px;overflow:hidden;"><img src="{{ $foto }}" height="130.20833333333334px" width="104.16666666666667px" style="border-width:0px;margin-top:-5px;margin-left:-2px;" /></div>--}}
                 <div style="max-height:120px;max-width:99px;overflow:hidden;"><img src="{{ $foto }}" height="130.20833333333334px" width="104.16666666666667px" style="border-width:0px;margin-top:-5px;margin-left:-2px;" /></div>
             </div>
         </td>

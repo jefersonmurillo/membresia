@@ -19,6 +19,8 @@ Route::prefix('membresia')->group(function () {
 
     Route::get('miembro-pdf', 'MiembroController@obtenerMiembroPdf')->name('membresia.miembro-pdf');
     Route::get('libro', 'MiembroController@getLibroMiembros')->name('libro-miembros');
+
+    Route::get('modificar', 'MiembroController@updateMiembro')->name('membresia.edit');
 });
 
 Route::get('p', function(){
@@ -26,7 +28,7 @@ Route::get('p', function(){
 })->name('p');
 
 Route::get('x', function(){
-    dd(\App\Utility\FormatNumber::convertDateSpanish('2019-03-27'));
+    dd(date('d/m/Y', strtotime('2019-03-27 19:04:40')));
 });
 
 Route::get('foto', 'PdfController@pdf');
